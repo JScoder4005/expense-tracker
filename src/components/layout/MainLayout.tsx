@@ -1,18 +1,23 @@
 import { Outlet } from 'react-router-dom';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from './AppSidebar';
+import { ThemeToggle } from './ThemeToggle';
 
 export function MainLayout() {
   return (
     <SidebarProvider defaultOpen>
       <AppSidebar />
-      <SidebarInset className="flex-1">
-        <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center gap-2 border-b bg-white px-6">
-          <h1 className="text-xl font-semibold">Expense Tracker</h1>
+      <SidebarInset>
+        <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between gap-2 border-b bg-background px-6">
+          <div className="flex items-center gap-2">
+            <SidebarTrigger />
+            <h1 className="text-xl font-semibold">Expense Tracker</h1>
+          </div>
+          <ThemeToggle />
         </header>
-        <div className="flex-1 p-6 bg-white">
+        <main className="flex-1 p-6">
           <Outlet />
-        </div>
+        </main>
       </SidebarInset>
     </SidebarProvider>
   );
