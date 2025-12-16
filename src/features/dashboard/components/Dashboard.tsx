@@ -41,19 +41,19 @@ export const Dashboard = () => {
   const { user } = useAuth();
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="w-full space-y-8">
       {/* Header */}
       <div className="space-y-2">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+        <h2 className="text-3xl font-bold tracking-tight">
           Welcome back, {user?.email?.split('@')[0]}! 👋
         </h2>
-        <p className="text-muted-foreground text-lg">
+        <p className="text-muted-foreground">
           Here's what's happening with your money today
         </p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {statsData.map((stat, index) => (
           <StatCard key={stat.title} {...stat} index={index} />
         ))}
