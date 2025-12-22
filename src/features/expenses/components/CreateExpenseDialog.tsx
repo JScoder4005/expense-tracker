@@ -140,16 +140,16 @@ export function CreateExpenseDialog() {
                   <FormLabel>Amount</FormLabel>
                   <FormControl>
                     <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-                        $
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
+                        ₹
                       </span>
                       <Input
                         type="number"
                         step="0.01"
                         placeholder="0.00"
-                        className="pl-7"
+                        className="pl-8"
                         {...field}
-                        onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                        onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
                       />
                     </div>
                   </FormControl>
