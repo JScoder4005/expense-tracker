@@ -19,13 +19,13 @@ export function MainLayout() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
-      {/* Sidebar */}
+      {/* Sidebar - shows icons when collapsed */}
       <div
         className={`${
-          sidebarOpen ? 'w-64' : 'w-0'
-        } transition-all duration-300 ease-in-out overflow-hidden`}
+          sidebarOpen ? 'w-64' : 'w-16'
+        } transition-all duration-300 ease-in-out shrink-0`}
       >
-        <AppSidebar />
+        <AppSidebar isCollapsed={!sidebarOpen} />
       </div>
 
       {/* Main Content */}

@@ -21,7 +21,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
 
 export const LoginForm = () => {
   const { mutate: login, isPending } = useLogin();
