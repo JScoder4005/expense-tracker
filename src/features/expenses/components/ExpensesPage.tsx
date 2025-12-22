@@ -1,13 +1,20 @@
+import { CreateExpenseDialog } from "./CreateExpenseDialog";
+
 export function ExpensesPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">Expenses</h2>
-        <p className="text-muted-foreground">
-          Manage and track all your expenses
-        </p>
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">Expenses</h2>
+          <p className="text-muted-foreground">
+            Manage and track all your expenses
+          </p>
+        </div>
+        <CreateExpenseDialog />
       </div>
 
+      {/* Coming soon: Expense list will go here */}
       <div className="rounded-lg border bg-card p-8 text-center">
         <div className="mx-auto max-w-md space-y-4">
           <div className="mx-auto h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center">
@@ -25,15 +32,13 @@ export function ExpensesPage() {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold">No expenses yet</h3>
+          <h3 className="text-lg font-semibold">Click "Add Expense" to get started</h3>
           <p className="text-sm text-muted-foreground">
             Start tracking your expenses by adding your first transaction
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all">
-            Add Expense
-          </button>
         </div>
       </div>
     </div>
   );
 }
+
