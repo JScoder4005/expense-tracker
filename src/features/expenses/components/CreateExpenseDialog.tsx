@@ -114,16 +114,8 @@ export function CreateExpenseDialog() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="expense">
-                        <span className="flex items-center gap-2">
-                          💸 Expense
-                        </span>
-                      </SelectItem>
-                      <SelectItem value="income">
-                        <span className="flex items-center gap-2">
-                          💰 Income
-                        </span>
-                      </SelectItem>
+                      <SelectItem value="expense">💸 Expense</SelectItem>
+                      <SelectItem value="income">💰 Income</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -207,10 +199,7 @@ export function CreateExpenseDialog() {
                             key={category.id}
                             value={category.id.toString()}
                           >
-                            <span className="flex items-center gap-2">
-                              <span>{category.icon}</span>
-                              <span>{category.name}</span>
-                            </span>
+                            {category.icon} {category.name}
                           </SelectItem>
                         ))
                       ) : (
