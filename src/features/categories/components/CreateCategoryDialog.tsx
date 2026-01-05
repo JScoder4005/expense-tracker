@@ -73,7 +73,7 @@ export function CreateCategoryDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+        <Button className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl">
           <Plus className="mr-2 h-4 w-4" />
           Add Category
         </Button>
@@ -168,13 +168,14 @@ export function CreateCategoryDialog() {
                         <button
                           key={presetColor}
                           type="button"
-                          className={`h-8 w-8 rounded-md border-2 transition-all ${
+                          className={`h-8 w-8 rounded-md border-2 transition-all duration-200 hover:scale-110 ${
                             field.value === presetColor
-                              ? "border-foreground scale-110"
-                              : "border-transparent"
+                              ? "border-foreground scale-110 shadow-md"
+                              : "border-transparent hover:border-muted-foreground/30"
                           }`}
                           style={{ backgroundColor: presetColor }}
                           onClick={() => field.onChange(presetColor)}
+                          aria-label={`Select color ${presetColor}`}
                         />
                       ))}
                     </div>
@@ -188,15 +189,15 @@ export function CreateCategoryDialog() {
             <div className="space-y-2">
               <FormLabel>Preview</FormLabel>
               <div
-                className="flex items-center gap-3 p-4 rounded-lg border"
+                className="flex items-center gap-3 p-4 rounded-lg border transition-all duration-300 ease-in-out"
                 style={{
                   borderColor: selectedColor,
                   backgroundColor: `${selectedColor}10`,
                 }}
               >
-                <span className="text-3xl">{selectedIcon}</span>
-                <div>
-                  <p className="font-semibold">{selectedName || "Category Name"}</p>
+                <span className="text-3xl transition-transform duration-200 hover:scale-110">{selectedIcon}</span>
+                <div className="flex-1">
+                  <p className="font-semibold transition-colors duration-200">{selectedName || "Category Name"}</p>
                   <p className="text-sm text-muted-foreground capitalize">{selectedType}</p>
                 </div>
               </div>
