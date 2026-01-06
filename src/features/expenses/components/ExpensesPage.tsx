@@ -15,9 +15,9 @@ export function ExpensesPage() {
       </div>
 
       {/* Coming soon: Expense list will go here */}
-      <div className="rounded-lg border bg-card p-8 text-center">
-        <div className="mx-auto max-w-md space-y-4">
-          <div className="mx-auto h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center">
+      <div className="rounded-lg border bg-card p-8 text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="mx-auto max-w-md space-y-4 animate-fadeIn">
+          <div className="mx-auto h-12 w-12 rounded-full bg-linear-to-br from-purple-100 to-pink-100 flex items-center justify-center transition-transform duration-300 hover:scale-110">
             <svg
               className="h-6 w-6 text-purple-600"
               fill="none"

@@ -82,7 +82,7 @@ export function CreateExpenseDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+        <Button className="bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105">
           <Plus className="mr-2 h-4 w-4" />
           Add {selectedType === "expense" ? "Expense" : "Income"}
         </Button>
@@ -131,17 +131,18 @@ export function CreateExpenseDialog() {
                 <FormItem>
                   <FormLabel>Amount</FormLabel>
                   <FormControl>
-                    <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
+                    <div className="relative group">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-medium transition-colors duration-200 group-focus-within:text-foreground">
                         ₹
                       </span>
                       <Input
                         type="number"
                         step="0.01"
                         placeholder="0.00"
-                        className="pl-8"
+                        className="pl-8 transition-all duration-200 focus:scale-[1.02]"
                         {...field}
                         onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                        aria-label="Transaction amount"
                       />
                     </div>
                   </FormControl>
@@ -227,16 +228,17 @@ export function CreateExpenseDialog() {
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full pl-3 text-left font-normal",
+                            "w-full pl-3 text-left font-normal transition-all duration-200 hover:bg-accent",
                             !field.value && "text-muted-foreground"
                           )}
+                          aria-label="Select transaction date"
                         >
                           {field.value ? (
                             format(new Date(field.value), "PPP")
                           ) : (
                             <span>Pick a date</span>
                           )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50 transition-transform duration-200 group-hover:scale-110" />
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
