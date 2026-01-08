@@ -187,7 +187,7 @@ export function CreateCategoryDialog() {
 
             {/* Preview */}
             <div className="space-y-2">
-              <FormLabel>Preview</FormLabel>
+              <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Preview</label>
               <div
                 className="flex items-center gap-3 p-4 rounded-lg border transition-all duration-300 ease-in-out"
                 style={{
