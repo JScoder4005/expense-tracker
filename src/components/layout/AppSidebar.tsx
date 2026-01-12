@@ -3,6 +3,7 @@ import {
   Wallet,
   Tags,
   BarChart3,
+  PiggyBank,
   LogOut,
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -27,6 +28,11 @@ const menuItems = [
     title: 'Categories',
     url: '/categories',
     icon: Tags,
+  },
+  {
+    title: 'Budgets',
+    url: '/budgets',
+    icon: PiggyBank,
   },
   {
     title: 'Analytics',

@@ -5,6 +5,7 @@ import { Dashboard } from '@/features/dashboard/components/Dashboard';
 import { ExpensesPage } from '@/features/expenses/components/ExpensesPage';
 import { CategoriesPage } from '@/features/categories/components/CategoriesPage';
 import { AnalyticsPage } from '@/features/analytics/components/AnalyticsPage';
+import { BudgetsPage } from '@/features/budgets/components/BudgetsPage';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 
@@ -28,6 +29,7 @@ export const AppRouter = () => {
           <Route path="/expenses" element={<ExpensesPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
+          <Route path="/budgets" element={<BudgetsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
