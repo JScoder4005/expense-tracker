@@ -1,4 +1,5 @@
 import { CreateExpenseDialog } from "./CreateExpenseDialog";
+import { ExportButton } from "./ExportButton";
 
 export function ExpensesPage() {
   return (
@@ -11,7 +12,10 @@ export function ExpensesPage() {
             Manage and track all your expenses
           </p>
         </div>
-        <CreateExpenseDialog />
+        <div className="flex gap-2">
+          <ExportButton />
+          <CreateExpenseDialog />
+        </div>
       </div>
 
       {/* Coming soon: Expense list will go here */}
