@@ -36,6 +36,8 @@ export function ExpenseList() {
   const deleteExpenseMutation = useDeleteExpense();
   const [expenseToDelete, setExpenseToDelete] = useState<Expense | null>(null);
 
+  console.log("hooksCalling",data)
+  
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
