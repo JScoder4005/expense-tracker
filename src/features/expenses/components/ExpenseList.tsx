@@ -106,7 +106,10 @@ export function ExpenseList() {
           </TableHeader>
           <TableBody>
             {expenses.map((expense) => (
-              <TableRow key={expense.id}>
+              <TableRow 
+                key={expense.id}
+                className="transition-all duration-200 hover:bg-muted/50 cursor-pointer"
+              >
                 <TableCell className="font-medium">
                   {format(new Date(expense.date), 'MMM dd, yyyy')}
                 </TableCell>
