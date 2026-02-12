@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
@@ -59,25 +59,29 @@ export function CreateExpenseDialog() {
 
   const selectedType = form.watch("type");
 
-  // Filter categories by selected type
-  const filteredCategories = categories?.filter(
-    (cat) => cat.type === selectedType
-  );
+  // Memoized filtered categories to prevent recalculation on every render
+  const filteredCategories = useMemo(() => {
+    if (!categories) return [];
+    return categories.filter((cat) => cat.type === selectedType);
+  }, [categories, selectedType]);
 
-  const onSubmit = (data: CreateExpenseFormData) => {
+  // Memoized callbacks to prevent function recreation
+  const handleSuccess = useCallback(() => {
+    setOpen(false);
+    form.reset();
+  }, [form]);
+
+  const onSubmit = useCallback((data: CreateExpenseFormData) => {
     createExpenseMutation.mutate(
       {
         ...data,
         categoryId: Number(data.categoryId),
       },
       {
-        onSuccess: () => {
-          setOpen(false);
-          form.reset();
-        },
+        onSuccess: handleSuccess,
       }
     );
-  };
+  }, [createExpenseMutation, handleSuccess]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
