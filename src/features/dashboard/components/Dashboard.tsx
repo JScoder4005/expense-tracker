@@ -1,6 +1,7 @@
 import { useAuth } from '@/features/auth/context/AuthContext';
 import { Wallet, TrendingUp, TrendingDown, PieChart, Loader2 } from 'lucide-react';
 import { StatCard } from './StatCard';
+import { RecentTransactions } from './RecentTransactions';
 import { useDashboardSummary } from '@/features/analytics/hooks/useAnalytics';
 
 export const Dashboard = () => {
@@ -100,6 +101,11 @@ export const Dashboard = () => {
         {statsData.map((stat, index) => (
           <StatCard key={stat.title} {...stat} index={index} />
         ))}
+      </div>
+
+      {/* Recent Transactions */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <RecentTransactions />
       </div>
     </div>
   );
