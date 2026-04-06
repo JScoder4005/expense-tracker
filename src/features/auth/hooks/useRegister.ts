@@ -8,23 +8,18 @@ export const useRegister = () => {
   const navigate = useNavigate();
 
   return useMutation({
-    mutationFn: (data: RegisterRequest) => {
-      console.log('🔵 [useRegister] Attempting registration with:', { email: data.email });
-      return registerUser(data);
-    },
-    onSuccess: (data) => {
-      console.log('✅ [useRegister] Registration successful:', data);
+    mutationFn: (data: RegisterRequest) => registerUser(data),
+    onSuccess: () => {
       toast.success('Account Created!', {
         description: 'Your account has been created successfully. Please sign in.',
       });
       navigate('/login');
     },
-    onError: (error: any) => {
+    onError: (error: Error & { response?: { data?: { message?: string } } }) => {
       const errorMessage = error.response?.data?.message || 'Registration failed. Please try again.';
       toast.error('Registration Failed', {
         description: errorMessage,
       });
-      console.error('❌ [useRegister] Registration failed:', errorMessage);
     },
   });
 };

@@ -5,15 +5,8 @@ import type { LoginRequest, RegisterRequest, AuthResponse, LoginResponse } from 
  * Register a new user
  */
 export const registerUser = async (data: RegisterRequest): Promise<AuthResponse> => {
-  console.log('🔵 [API] Calling /auth/register with:', { email: data.email });
-  try {
-    const response = await axiosInstance.post<AuthResponse>('/auth/register', data);
-    console.log('✅ [API] Register response:', response.data);
-    return response.data;
-  } catch (error: any) {
-    console.error('❌ [API] Register error:', error.response?.data || error.message);
-    throw error;
-  }
+  const response = await axiosInstance.post<AuthResponse>('/auth/register', data);
+  return response.data;
 };
 
 /**

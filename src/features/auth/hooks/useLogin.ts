@@ -27,7 +27,6 @@ export const useLogin = () => {
       toast.error('Login Failed', {
         description: errorMessage,
       });
-      console.error('❌ Login failed:', errorMessage);
     },
   });
 };

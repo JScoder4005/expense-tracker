@@ -7,6 +7,7 @@ import {
   Wallet,
   Tags,
   BarChart3,
+  PiggyBank,
   LogOut,
 } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';

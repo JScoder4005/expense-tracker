@@ -26,7 +26,6 @@ export const useLogout = () => {
       toast.error('Logout Failed', {
         description: errorMessage,
       });
-      console.error('❌ Logout failed:', errorMessage);
     },
   });
 };
